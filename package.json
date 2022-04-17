@@ -4,10 +4,13 @@
 	"description": "express + react app",
 	"main": "index.js",
 	"scripts": {
-		"dev-api": "cd ./api && yarn run dev",
-		"dev-client": "cd ./client yarn start",
+		"build": "cd client && yarn build",
+		"dev-api": "cd api && yarn run dev",
+		"dev-client": "cd client && yarn start",
 		"dev": "concurrently --kill-others \"yarn run dev-api\" \"yarn run dev-client\"",
-		"start": "(cd ./api && yarn start) && (cd ../client && yarn start)",
+		"start-api": "cd api && yarn start",
+		"start-client": "cd client && yarn start",
+		"start": "concurrently --kill-others \"yarn run start-api\" \"yarn run start-client\"",
 		"postinstall": "(cd ./api && yarn install) && (cd ../client && yarn install)"
 	},
 	"keywords": [
