@@ -6,10 +6,6 @@ const app = express();
 app.use(cors());
 const port = process.env["API_PORT"] || 8080;
 
-app.get("/", (req, res) => {
-	res.send("Hello from api-server");
-});
-
 var allowedOrigins = ["http://localhost:3000"];
 
 app.use(
@@ -28,6 +24,10 @@ app.use(
 		},
 	})
 );
+
+app.get("/", (req, res) => {
+	res.send("Hello from api-server");
+});
 
 app.listen(port, () => {
 	console.log(`api-server listening at http://localhost:${port}`);
