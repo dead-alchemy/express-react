@@ -1,5 +1,6 @@
 const express = require("express");
 var cors = require("cors");
+let bodyparser = require("body-parser");
 require("dotenv").config({path: "../.env"});
 
 const app = express();
@@ -7,6 +8,14 @@ app.use(cors());
 const port = process.env["API_PORT"] || 8080;
 
 var allowedOrigins = ["http://localhost:3000"];
+
+app.use(bodyparser.json({limit: "1000mb"}));
+app.use(
+	bodyparser.urlencoded({
+		limit: "1000mb",
+		extended: true,
+	})
+);
 
 app.use(
 	cors({
