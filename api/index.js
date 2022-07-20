@@ -1,43 +1,23 @@
-const express = require("express");
-var cors = require("cors");
-let bodyparser = require("body-parser");
+const {createExpressApp} = require("./middleware/createExpressApp");
+
 require("dotenv").config({path: "../.env"});
 
-const app = express();
-app.use(cors());
+const app = createExpressApp();
+
 const port = process.env["API_PORT"] || 8080;
 
-var allowedOrigins = ["http://localhost:3000"];
+// public routes
+app.use("/api", require("./routes/example.js"));
 
-app.use(bodyparser.json({limit: "1000mb"}));
-app.use(
-	bodyparser.urlencoded({
-		limit: "1000mb",
-		extended: true,
-	})
-);
+app.use((error, req, res, next) => {
+	if (res.headerSent) {
+		return next(error);
+	}
 
-app.use(
-	cors({
-		origin: function (origin, callback) {
-			// allow requests with no origin
-			// (like mobile apps or curl requests)
-			if (!origin) return callback(null, true);
-			if (allowedOrigins.indexOf(origin) === -1) {
-				var msg =
-					"The CORS policy for this site does not " +
-					"allow access from the specified Origin.";
-				return callback(new Error(msg), false);
-			}
-			return callback(null, true);
-		},
-	})
-);
-
-app.get("/", (req, res) => {
-	res.send("Hello from api-server");
+	res.status(error.code || 500);
+	res.json({message: error.message || "An Unknown Error has Occured"});
 });
 
 app.listen(port, () => {
-	console.log(`api-server listening at http://localhost:${port}`);
+	console.log(`api-server listening at http://localhost:${port}/api`);
 });
