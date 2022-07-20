@@ -7,7 +7,7 @@ const app = createExpressApp();
 const port = process.env["API_PORT"] || 8080;
 
 // public routes
-app.use("/api", require("./routes/example.js"));
+app.use("/api/", require("./routes/example.js"));
 
 app.use((error, req, res, next) => {
 	if (res.headerSent) {
@@ -19,5 +19,5 @@ app.use((error, req, res, next) => {
 });
 
 app.listen(port, () => {
-	console.log(`api-server listening at http://localhost:${port}/api`);
+	console.log(`api-server listening at http://localhost:${port}`);
 });
