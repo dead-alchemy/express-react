@@ -1,4 +1,4 @@
-const {pool} = require("../config/postgres");
+const {pool} = require("../connectors/postgres");
 
 const getTest = async () => {
 	try {
