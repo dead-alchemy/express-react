@@ -1,14 +1,6 @@
 const {pool} = require("../config/postgres");
 
 const getTest = async () => {
-	// pool.query("SELECT * FROM public.testing", (error, results) => {
-	// 	if (error) {
-	// 		return error;
-	// 	}
-	// 	return results.rows;
-	// 	//response.status(200).json(results.rows);
-	// });
-	// pool.end();
 	try {
 		const res = await pool.query(`SELECT * FROM public.testing`);
 		pool.end();
@@ -17,6 +9,7 @@ const getTest = async () => {
 			status: 200,
 		};
 	} catch (err) {
+		// send the error in case something happens.
 		return {
 			data: err.stack,
 			status: 500,
