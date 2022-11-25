@@ -10,7 +10,7 @@ const getTest = async () => {
 	// });
 	// pool.end();
 	try {
-		const res = await pool.query(`SELECT * FROM pub lic.testing`);
+		const res = await pool.query(`SELECT * FROM public.testing`);
 		pool.end();
 		return {
 			data: res.rows,
