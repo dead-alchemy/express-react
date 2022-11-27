@@ -4,6 +4,16 @@ This is a quick start pack to help me get started with react / express projects.
 
 This project uses yarn over npm.
 
+## .env
+
+API_PORT=8080
+CLIENT_PORT=3000
+PG_USER=''
+PG_HOST=''
+PG_DATABASE=''
+PG_PASSWORD=''
+PG_PORT=5432
+
 ## Scripts
 
 Here is a run down of the scripts and what they are doing.
