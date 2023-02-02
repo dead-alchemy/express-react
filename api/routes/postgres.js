@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const {getTest} = require("../model/postgress");
+const {getTest} = require("../model/postgres");
 
 module.exports = router.get("/", async (req, res) => {
 	const {status, data} = await getTest();
