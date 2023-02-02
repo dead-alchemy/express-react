@@ -10,14 +10,14 @@ import {QueryClient, QueryClientProvider} from "react-query";
 
 const queryClient = new QueryClient();
 
-import Router from "./routes";
+import {router} from "./routes";
 
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<QueryClientProvider client={queryClient}>
 		<ChakraProvider>
-			<Router />
+			<RouterProvider router={router} />
 		</ChakraProvider>
 		<ReactQueryDevtools initialIsOpen={false} />
 	</QueryClientProvider>
