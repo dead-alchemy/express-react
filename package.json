@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "cd client && yarn build",
 		"dev-api": "cd api && yarn dev",
-		"dev-client": "cd client && yarn start",
+		"dev-client": "cd client && yarn dev",
 		"dev": "concurrently --kill-others \"yarn run dev-api\" \"yarn run dev-client\"",
 		"start-api": "cd api && yarn start",
 		"start-client": "cd client && yarn start",
