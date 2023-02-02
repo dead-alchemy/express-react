@@ -2,7 +2,7 @@ const {pool} = require("../connectors/postgres");
 
 const getTest = async () => {
 	try {
-		const res = await pool.query(`SELECT * FROM public.testing`);
+		const res = await pool.query(`SELECT 'hello' as res `);
 		pool.end();
 		return {
 			data: res.rows,

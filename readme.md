@@ -6,13 +6,15 @@ This project uses yarn over npm.
 
 ## .env
 
+```
 API_PORT=8080
-CLIENT_PORT=3000
+VITE_PORT=3000
 PG_USER=''
 PG_HOST=''
 PG_DATABASE=''
 PG_PASSWORD=''
 PG_PORT=5432
+```
 
 ## Scripts
 
@@ -33,9 +35,9 @@ Here is a run down of the scripts and what they are doing.
 
 ## Api
 
-Use Postgress over all else.
+Use Postgres over all else.
 
-Connectors is where our connection detials go.
+Connectors is where our connection details go.
 
 Model is where our queries go.
 
@@ -46,3 +48,5 @@ Routes. Make sure to add new routes to index.js
 REACT.
 
 I added Chakra by default but feel free to use whatever.
+
+Vite rules.
