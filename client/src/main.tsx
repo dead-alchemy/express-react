@@ -12,8 +12,6 @@ const queryClient = new QueryClient();
 
 import {router} from "./routes";
 
-import "./index.css";
-
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<QueryClientProvider client={queryClient}>
 		<ChakraProvider>
