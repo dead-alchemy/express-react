@@ -1,38 +1,54 @@
 import {useState} from "react";
-import reactLogo from "assets/react.svg";
-import "./App.css";
+import {
+	Box,
+	Center,
+	Link,
+	Image,
+	Button,
+	Text,
+	Heading,
+} from "@chakra-ui/react";
 
-function App() {
+import reactLogo from "assets/react.svg";
+
+const App = () => {
 	const [count, setCount] = useState(0);
 
 	return (
-		<div className="App">
-			<div>
-				<a href="https://vitejs.dev" target="_blank">
-					<img src="/vite.svg" className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://reactjs.org" target="_blank">
-					<img
+		<Box maxWidth={"1280px"} my={0} mx={"auto"} textAlign="center">
+			<Center>
+				<Link href="https://vitejs.dev" target="_blank">
+					<Image
+						src="/vite.svg"
+						height={"6em"}
+						p={"1.5em"}
+						alt="Vite logo"
+					/>
+				</Link>
+				<Link href="https://reactjs.org" target="_blank">
+					<Image
 						src={reactLogo}
-						className="logo react"
+						height={"6em"}
+						p={"1.5em"}
+						filter={"drop-shadow(0 0 2em blue.800);"}
 						alt="React logo"
 					/>
-				</a>
-			</div>
-			<h1>Vite + React</h1>
-			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>
+				</Link>
+			</Center>
+			<Heading as={"h1"}>Vite + React</Heading>
+			<Box p={2}>
+				<Button onClick={() => setCount((count) => count + 1)}>
 					count is {count}
-				</button>
-				<p>
+				</Button>
+				<Text>
 					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-			</div>
-			<p className="read-the-docs">
+				</Text>
+			</Box>
+			<Text color={"gray.500"}>
 				Click on the Vite and React logos to learn more
-			</p>
-		</div>
+			</Text>
+		</Box>
 	);
-}
+};
 
 export default App;
